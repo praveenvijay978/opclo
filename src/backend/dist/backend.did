@@ -1,0 +1,75 @@
+type ShopInput = 
+ record {
+   address: text;
+   category: ShopCategory;
+   closingTime: text;
+   instagramId: opt text;
+   latitude: float64;
+   longitude: float64;
+   name: text;
+   offers: vec text;
+   openingTime: text;
+   phone: text;
+   photoKeys: vec text;
+ };
+type ShopCategory = 
+ variant {
+   Bakery;
+   Cafe;
+   JuiceShop;
+   Other: text;
+   Restaurant;
+   SnackShop;
+   StreetFood;
+ };
+type Shop = 
+ record {
+   address: text;
+   category: ShopCategory;
+   closingTime: text;
+   createdAt: int;
+   id: nat;
+   instagramId: opt text;
+   isOpen: bool;
+   latitude: float64;
+   longitude: float64;
+   name: text;
+   offers: vec text;
+   openingTime: text;
+   ownerId: principal;
+   phone: text;
+   photoKeys: vec text;
+   rating: float64;
+   reviewCount: nat;
+ };
+type ReviewInput = 
+ record {
+   comment: text;
+   shopId: nat;
+   stars: nat;
+ };
+type Review = 
+ record {
+   comment: text;
+   createdAt: int;
+   id: nat;
+   shopId: nat;
+   stars: nat;
+   userId: principal;
+ };
+service : {
+  addReview: (input: ReviewInput) -> (Review);
+  extendShopHours: (newClosingTime: text) -> (bool);
+  getAllShops: () -> (vec Shop) query;
+  getFavorites: () -> (vec Shop) query;
+  getOwnerShop: () -> (opt Shop) query;
+  getReviews: (shopId: nat) -> (vec Review) query;
+  getShopById: (id: nat) -> (opt Shop) query;
+  getShopsByCategory: (category: ShopCategory) -> (vec Shop) query;
+  initSeed: () -> ();
+  registerShop: (input: ShopInput) -> (Shop);
+  searchShops: (searchTerm: text) -> (vec Shop) query;
+  toggleFavorite: (shopId: nat) -> (bool);
+  updateShopHours: (openingTime: text, closingTime: text) -> (bool);
+  updateShopStatus: (isOpen: bool) -> (bool);
+}

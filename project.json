@@ -1,0 +1,27 @@
+{
+  "overview": "Opclo is a local shop discovery app that lets customers instantly see which nearby shops are open or closed today — saving time and unnecessary trips. Shop owners can register their store, manage hours, and toggle their open/closed status in real time. Features include shop categories, star ratings, photo galleries, live location, favorites, global search, and 5-minute pre-close owner notifications.",
+  "features": [
+    "Browse shops by category (street food, juice shop, bakery, etc.)",
+    "Real-time open/closed status for every shop",
+    "Shop detail page with photos, address, map, and Instagram link",
+    "Global search and category-level search",
+    "Favorites/bookmarks for quick access",
+    "Owner registration with live location picker",
+    "Owner dashboard with manual open/close toggle",
+    "5-minute pre-close notification with quick toggle",
+    "Peak-day hour extension for owners",
+    "Colorful food-themed professional UI"
+  ],
+  "category": "local-discovery",
+  "tags": [
+    "local-shops",
+    "discovery",
+    "open-closed",
+    "food",
+    "shop-finder",
+    "owner-dashboard",
+    "favorites",
+    "map"
+  ],
+  "last_updated": "2026-05-19T06:44:36.538Z"
+}

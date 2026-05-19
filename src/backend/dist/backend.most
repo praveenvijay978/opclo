@@ -1,0 +1,73 @@
+// Version: 1.0.0
+type Favorite__1067222583 = {shopId : Nat; userId : Principal};
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type OwnerProfile__718428345 =
+  {principal_ : Principal; registeredAt : Int; shopId : Nat};
+type Review__755460415 =
+  {
+    comment : Text;
+    createdAt : Int;
+    id : Nat;
+    shopId : Nat;
+    stars : Nat;
+    userId : Principal
+  };
+type ShopCategory__335325527 =
+  {
+    #Bakery;
+    #Cafe;
+    #JuiceShop;
+    #Other : Text;
+    #Restaurant;
+    #SnackShop;
+    #StreetFood
+  };
+type Shop__122636150 =
+  {
+    address : Text;
+    category : ShopCategory__335325527;
+    closingTime : Text;
+    createdAt : Int;
+    id : Nat;
+    instagramId : ?Text;
+    isOpen : Bool;
+    latitude : Float;
+    longitude : Float;
+    name : Text;
+    offers : [Text];
+    openingTime : Text;
+    ownerId : Principal;
+    phone : Text;
+    photoKeys : [Text];
+    rating : Float;
+    reviewCount : Nat
+  };
+actor {
+  stable favorites :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Favorite__1067222583]];
+      var elementIndex : Nat__490723111
+    };
+  stable owners :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?OwnerProfile__718428345]];
+      var elementIndex : Nat__490723111
+    };
+  stable reviews :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Review__755460415]];
+      var elementIndex : Nat__490723111
+    };
+  stable shops :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Shop__122636150]];
+      var elementIndex : Nat__490723111
+    };
+  stable state :
+    {var nextReviewId : Nat; var nextShopId : Nat; var seeded : Bool}
+};
